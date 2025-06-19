@@ -44,7 +44,7 @@ Multiple datasets fully demonstrate the model's generalization capability.
 
 
 Before starting model training, we use the ESM3 model to predict contact maps. The ESM3 model can predict the spatial proximity relationships between atoms in protein-ligand complexes based on protein sequence information, thereby generating corresponding contact maps. These contact maps include important details such as contact locations, contact types, and contact strengths, providing rich structural feature data for model training and helping the model better understand the interaction patterns between proteins and ligands.
-Contact maps are named as ‘{target_key}.npy’ files. Each contact map for protein-ligand complexes in the generated dataset should be properly stored in a folder named ‘{dataset_name}_npy_contact_maps’ to enable quick and accurate access and reading during model training, ensuring the efficiency and consistency of the entire model training process and laying a solid foundation for improving model performance.
+Protein contact maps are named as ‘{target_key}.npy’ files. Each contact map for protein-ligand complexes in the generated dataset should be properly stored in a folder named ‘{dataset_name}_npy_contact_maps’ to enable quick and accurate access and reading during model training, ensuring the efficiency and consistency of the entire model training process and laying a solid foundation for improving model performance.
 
 ## ✨ Operating System
 MAFI was developed on a Linux environment with CUDA 12.4
