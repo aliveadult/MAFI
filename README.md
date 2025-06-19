@@ -82,9 +82,9 @@ https://hf-mirror.com/EvolutionaryScale/esm3-sm-open-v1/tree/main/data
 ```
 This allows you to use it to generate protein homologous sequences.
 
-The code file can now be run.
 
 ## 🖥️ Run Code
+After thorough preparation, the code file can now be run.
 ```
 python main.py 
 ```
