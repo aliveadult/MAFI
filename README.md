@@ -1,4 +1,4 @@
-# MAFI: A Multi-Modal Attention Framework Integrating Molecular Subgraphs and Homologous Sequence Features for Drug-Target Affinity Prediction
+# MAFI-DTA: A Multi-Modal Attention Framework Integrating Molecular Subgraphs and Homologous Sequence Features for Drug-Target Affinity Prediction
 
 
 ## 💡 MAFI-DTA Framework
