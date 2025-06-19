@@ -90,6 +90,6 @@ The code file can now be run.
 python main.py 
 ```
 
-## ✉ Citation and contact
+## ✉ Citation
 @article{
 }
