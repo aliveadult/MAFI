@@ -26,22 +26,25 @@ These files collectively form a multi-modal attention framework for drug-target 
 
 
 ## 📁 Dataset
-To ensure the accuracy of the model, we utilized six datasets: Davis, KIBA, PDBbind, Toxcast, Binding DB, and Metz. 
 
-"Davis_processed.csv" records protein-drug molecule binding affinity data, which is used for model training and validation. 
+#Proteins, small molecules, and affinity values
+To ensure the accuracy and generalisation capability of the model, this study used six authoritative datasets: Davis, KIBA, PDBbind, Toxcast, Binding DB, and Metz. The following is a brief description of each dataset and the link to obtain it:
 
-‘KIBA_processed.csv’ integrates multi-source data and records ligand-receptor protein binding constants. 
+1. Davis Dataset: Records protein-drug molecular binding affinity data for model training and validation. This dataset provides rich protein-drug interaction information, aiding the model in learning predictive patterns for binding affinity. It can be downloaded via the following link: [Davis Dataset](https://davischallenge.org/).
 
-‘PDBbind_processed.csv’ provides three-dimensional structures and binding affinity data for protein-ligand complexes. 
+2. KIBA Dataset: Integrates multi-source data to record ligand-receptor protein binding constants. This dataset provides comprehensive drug-target interaction data for models by combining information from various types of biological activity. Download link: [KIBA Dataset](https://paperswithcode.com/dataset/kiba).
 
-‘Toxcast_processed.csv’ covers toxicological data for various chemicals. 
+3. PDBbind Dataset: Provides three-dimensional structures and binding affinity data for protein-ligand complexes. The three-dimensional structural information in this dataset helps models understand protein-ligand binding patterns. Download link: [PDBbind Dataset](https://www.bindingdb.org/bind/).
 
-"BindingDB_processed.csv" contains binding data for protein-ligand complexes. 
+4. Toxcast Dataset: Covers toxicological data for various chemicals. This dataset provides models with rich toxicological information, aiding in toxicity prediction tasks. It can be accessed via the following link: [Toxcast Dataset](https://www.epa.gov/chemical-research).
 
-‘Metz_processed.csv’ is used for toxicity prediction studies of compounds.
+5. Binding DB Dataset: Contains binding data for protein-ligand complexes. This dataset provides a large number of binding affinity measurements, offering abundant data support for model training. The download link is: [Binding DB Dataset](https://www.bindingdb.org/rwd/bind/index.jsp).
 
-Multiple datasets fully demonstrate the model's generalization capability.
+6. Metz Dataset: Used for toxicity prediction studies of compounds. This dataset focuses on toxicity assessment of compounds, providing critical data support for toxicity prediction tasks. It can be downloaded via the following link: [Metz Dataset](https://www.selectdataset.com/dataset/).
 
+Users can download the datasets based on their characteristics and research needs, perform corresponding preprocessing operations, and fully leverage the advantages of these datasets to enhance model performance and generalisation capabilities.
+
+#protein contact map
 
 Before starting model training, we use the ESM3 model to predict contact maps. The ESM3 model can predict the spatial proximity relationships between atoms in protein-ligand complexes based on protein sequence information, thereby generating corresponding contact maps. These contact maps include important details such as contact locations, contact types, and contact strengths, providing rich structural feature data for model training and helping the model better understand the interaction patterns between proteins and ligands.
 Protein contact maps are named as ‘{target_key}.npy’ files. Each contact map for protein-ligand complexes in the generated dataset should be properly stored in a folder named ‘{dataset_name}_npy_contact_maps’ to enable quick and accurate access and reading during model training, ensuring the efficiency and consistency of the entire model training process and laying a solid foundation for improving model performance.
