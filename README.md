@@ -38,7 +38,7 @@ To ensure the accuracy and generalisation capability of the model, this study us
 
 4. Toxcast Dataset: Covers toxicological data for various chemicals. This dataset provides models with rich toxicological information, aiding in toxicity prediction tasks. It can be accessed via the following link: [Toxcast Dataset](https://www.epa.gov/chemical-research).
 
-5. Binding DB Dataset: Contains binding data for protein-ligand complexes. This dataset provides a large number of binding affinity measurements, offering abundant data support for model training. The download link is: [Binding DB Dataset](https://www.bindingdb.org/rwd/bind/index.jsp).
+5. Binding DB Dataset: Contains binding data for protein-ligand complexes. This dataset provides a large number of binding affinity measurements, offering abundant data support for model training. The download link is: [Binding_DB Dataset](https://www.bindingdb.org/rwd/bind/index.jsp).
 
 6. Metz Dataset: Used for toxicity prediction studies of compounds. This dataset focuses on toxicity assessment of compounds, providing critical data support for toxicity prediction tasks. It can be downloaded via the following link: [Metz Dataset](https://www.selectdataset.com/dataset/).
 
