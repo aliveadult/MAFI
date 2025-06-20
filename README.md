@@ -27,7 +27,7 @@ These files collectively form a multi-modal attention framework for drug-target 
 
 ## 📁 Dataset
 
-# Proteins, Small molecules, and Affinity values
+### Proteins, Small molecules, and Affinity values
 To ensure the accuracy and generalisation capability of the model, this study used six authoritative datasets: Davis, KIBA, PDBbind, Toxcast, Binding DB, and Metz. The following is a brief description of each dataset and the link to obtain it:
 
 1. Davis Dataset: Records protein-drug molecular binding affinity data for model training and validation. This dataset provides rich protein-drug interaction information, aiding the model in learning predictive patterns for binding affinity. It can be downloaded via the following link: [Davis Dataset](https://davischallenge.org/).
@@ -44,7 +44,7 @@ To ensure the accuracy and generalisation capability of the model, this study us
 
 Users can download the datasets based on their characteristics and research needs, perform corresponding preprocessing operations, and fully leverage the advantages of these datasets to enhance model performance and generalisation capabilities.
 
-# Protein Contact Map
+### Protein Contact Map
 
 Before starting model training, we use the ESM3 model to predict contact maps. The ESM3 model can predict the spatial proximity relationships between atoms in protein-ligand complexes based on protein sequence information, thereby generating corresponding contact maps. These contact maps include important details such as contact locations, contact types, and contact strengths, providing rich structural feature data for model training and helping the model better understand the interaction patterns between proteins and ligands.
 Protein contact maps are named as ‘{target_key}.npy’ files. Each contact map for protein-ligand complexes in the generated dataset should be properly stored in a folder named ‘{dataset_name}_npy_contact_maps’ to enable quick and accurate access and reading during model training, ensuring the efficiency and consistency of the entire model training process and laying a solid foundation for improving model performance.
