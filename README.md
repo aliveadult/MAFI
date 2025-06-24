@@ -49,7 +49,7 @@ Users can download the datasets based on their characteristics and research need
 Before starting model training, we use the ESM3 model to predict contact maps. The ESM3 model can predict the spatial proximity relationships between atoms in protein-ligand complexes based on protein sequence information, thereby generating corresponding contact maps. These contact maps include important details such as contact locations, contact types, and contact strengths, providing rich structural feature data for model training and helping the model better understand the interaction patterns between proteins and ligands.
 Protein contact maps are named as ‘{target_key}.nypy’ files. Each contact map for a protein-ligand complex in the generated dataset should be properly stored in a folder named ‘{dataset_name}_npy_contact_maps’ to enable quick and accurate access and reading during model training, ensuring the efficiency and consistency of the entire model training process and laying a solid foundation for improving model performance.
 
-You can also download the corresponding contact maps and datasets from the corresponding URL: 
+You can also download the corresponding protein contact maps and datasets from the corresponding URL: 
 ```
 https://drive.google.com/drive/folders/196Uj91O-Dh6rQUs9MWRGH3X-G7mKq0ZP?hl=zh-cn.
 ```
