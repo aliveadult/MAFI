@@ -10,10 +10,10 @@ from tqdm import tqdm
 from rdkit import Chem
 import networkx as nx
 
-# 设置环境变量以避免内存碎片化
+
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
-# 设置 CUDA 可见设备为 GPU 1
+
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -202,8 +202,8 @@ def get_explained_variance(y, f):
     return 1 - np.var(y - f) / np.var(y)
 
 def get_rm2(Y, P):
-    r2 = r_squared_error(Y, P)  # 修改为使用 Y 和 P
-    r02 = squared_error_zero(Y, P)  # 修改为使用 Y 和 P
+    r2 = r_squared_error(Y, P)
+    r02 = squared_error_zero(Y, P) 
 
     return r2 * (1 - np.sqrt(np.absolute((r2 * r2) - (r02 * r02))))
 
