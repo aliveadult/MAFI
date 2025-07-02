@@ -200,6 +200,12 @@ def get_explained_variance(y, f):
 def get_rm2(y, f):
     return 1 - ((y - f)**2).sum() / ((y - y.mean())**2).sum()
 
+def get_rm2(y, f):
+    r2 = r_squared_error(ys_orig, ys_line)
+    r02 = squared_error_zero(ys_orig, ys_line)
+
+    return r2 * (1 - np.sqrt(np.absolute((r2 * r2) - (r02 * r02))))
+
 def get_rm(y, f):
     y_pred_mean = np.mean(f)
     numerator = np.sum((f - y_pred_mean) ** 2)
