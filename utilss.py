@@ -10,10 +10,10 @@ from tqdm import tqdm
 from rdkit import Chem
 import networkx as nx
 
-
+# 设置环境变量以避免内存碎片化
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
-
+# 设置 CUDA 可见设备为 GPU 1
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -157,8 +157,8 @@ def get_cindex(Y, P):
 def r_squared_error(y_obs, y_pred):
     y_obs = np.array(y_obs)
     y_pred = np.array(y_pred)
-    y_obs_mean = [np.mean(y_obs) for y in y_obs]
-    y_pred_mean = [np.mean(y_pred) for y in y_pred]
+    y_obs_mean = np.mean(y_obs)
+    y_pred_mean = np.mean(y_pred)
 
     mult = sum((y_pred - y_pred_mean) * (y_obs - y_obs_mean))
     mult = mult * mult
@@ -166,6 +166,8 @@ def r_squared_error(y_obs, y_pred):
     y_obs_sq = sum((y_obs - y_obs_mean) * (y_obs - y_obs_mean))
     y_pred_sq = sum((y_pred - y_pred_mean) * (y_pred - y_pred_mean))
 
+    if y_obs_sq * y_pred_sq == 0:
+        return 0
     return mult / float(y_obs_sq * y_pred_sq)
 
 
@@ -174,6 +176,8 @@ def get_k(y_obs, y_pred):
     y_obs = np.array(y_obs)
     y_pred = np.array(y_pred)
 
+    if np.sum(y_pred * y_pred) == 0:
+        return 0
     return sum(y_obs * y_pred) / float(sum(y_pred * y_pred))
 
 
@@ -183,8 +187,8 @@ def squared_error_zero(y_obs, y_pred):
 
     y_obs = np.array(y_obs)
     y_pred = np.array(y_pred)
-    y_obs_mean = [np.mean(y_obs) for y in y_obs]
-    y_pred_mean = [np.mean(y_pred) for y in y_pred]
+    y_obs_mean = np.mean(y_obs)
+    y_pred_mean = np.mean(y_pred)
 
     mult = sum((y_pred - y_pred_mean) * (y_obs - y_obs_mean))
     mult = mult * mult
@@ -192,7 +196,7 @@ def squared_error_zero(y_obs, y_pred):
     y_obs_sq = sum((y_obs - y_obs_mean) * (y_obs - y_obs_mean))
     y_pred_sq = sum((y_pred - y_pred_mean) * (y_pred - y_pred_mean))
 
-    return 1 - (mult / float(y_obs_sq * y_pred_sq))
+    return 1 - (mult / float(y_obs_sq * y_pred_sq)) if y_obs_sq * y_pred_sq != 0 else 0
 
 
 def get_mae(y, f):
@@ -202,22 +206,30 @@ def get_explained_variance(y, f):
     return 1 - np.var(y - f) / np.var(y)
 
 def get_rm2(Y, P):
-    r2 = r_squared_error(Y, P)
-    r02 = squared_error_zero(Y, P) 
-
-    return r2 * (1 - np.sqrt(np.absolute((r2 * r2) - (r02 * r02))))
+    r2 = get_r2(Y, P)
+    rm = get_rm(Y, P)
+    numerator = (r2 * r2) - (rm * rm)
+    denominator = r2 * r2
+    if denominator == 0:
+        return 0
+    rm2 = r2 * (1 - np.sqrt(np.absolute(numerator / denominator)))
+    return rm2
 
 
 def get_rm(Y, P):
     y_pred_mean = np.mean(P)
     numerator = np.sum((P - y_pred_mean) ** 2)
     denominator = np.sum((Y - y_pred_mean) ** 2)
+    if denominator == 0:
+        return 0
     return numerator / denominator
 
 def get_r2(y, f):
     y_mean = np.mean(y)
     ss_tot = np.sum((y - y_mean) ** 2)
     ss_res = np.sum((y - f) ** 2)
+    if ss_tot == 0:
+        return 0
     return 1 - (ss_res / ss_tot)
 
 
