@@ -10,15 +10,16 @@ from tqdm import tqdm
 from rdkit import Chem
 import networkx as nx
 
-# Set environment variable to avoid memory fragmentation
+# 设置环境变量以避免内存碎片化
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
-# Set CUDA visible device to GPU 0
+# 设置 CUDA 可见设备为 GPU 1
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def calculate_metrics_and_return(Y, P, dataset='kiba'):
+    # aupr = get_aupr(Y, P)
     cindex = get_ci(Y, P)
     mse = get_mse(Y, P)
     rmse = get_rmse(Y, P)
@@ -129,6 +130,7 @@ atom_dict = {5: 'C',
              }
 
 def get_aupr(Y, P, threshold=7.0):
+    # print(Y.shape,P.shape)
     Y = np.where(Y >= 7.0, 1, 0)
     P = np.where(P >= 7.0, 1, 0)
     aupr = average_precision_score(Y, P)
@@ -168,6 +170,7 @@ def r_squared_error(y_obs, y_pred):
 
 
 def get_k(y_obs, y_pred):
+
     y_obs = np.array(y_obs)
     y_pred = np.array(y_pred)
 
@@ -175,6 +178,7 @@ def get_k(y_obs, y_pred):
 
 
 def squared_error_zero(y_obs, y_pred):
+
     k = get_k(y_obs, y_pred)
 
     y_obs = np.array(y_obs)
@@ -197,19 +201,17 @@ def get_mae(y, f):
 def get_explained_variance(y, f):
     return 1 - np.var(y - f) / np.var(y)
 
-def get_rm2(y, f):
-    return 1 - ((y - f)**2).sum() / ((y - y.mean())**2).sum()
-
-def get_rm2(y, f):
-    r2 = r_squared_error(ys_orig, ys_line)
-    r02 = squared_error_zero(ys_orig, ys_line)
+def get_rm2(Y, P):
+    r2 = r_squared_error(Y, P)  # 修改为使用 Y 和 P
+    r02 = squared_error_zero(Y, P)  # 修改为使用 Y 和 P
 
     return r2 * (1 - np.sqrt(np.absolute((r2 * r2) - (r02 * r02))))
 
-def get_rm(y, f):
-    y_pred_mean = np.mean(f)
-    numerator = np.sum((f - y_pred_mean) ** 2)
-    denominator = np.sum((y - y_pred_mean) ** 2)
+
+def get_rm(Y, P):
+    y_pred_mean = np.mean(P)
+    numerator = np.sum((P - y_pred_mean) ** 2)
+    denominator = np.sum((Y - y_pred_mean) ** 2)
     return numerator / denominator
 
 def get_r2(y, f):
@@ -235,6 +237,7 @@ def get_spearman(y, f):
 
 
 def calculate_metrics(Y, P, dataset='kiba'):
+    # aupr = get_aupr(Y, P)
     cindex = get_cindex(Y, P)  # DeepDTA
     rm2 = get_rm2(Y, P)  # DeepDTA
     mse = get_mse(Y, P)
@@ -246,9 +249,10 @@ def calculate_metrics(Y, P, dataset='kiba'):
     r2 = get_r2(Y, P)
     rm = get_rm(Y, P)
     print('metrics for ', dataset)
+    # print('aupr:', aupr)
     print('cindex:', cindex)
 
-    print('rm2:', rm2)
+    # print('rm2:', rm2)
     print('mse:', mse)
     print('pearson', pearson)
     print('spearman:', spearman)
