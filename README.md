@@ -1,7 +1,7 @@
 # MAFI-DTA: A Novel Method For Drug-Target Affinity Prediction by Integrating Predicted Evolutionary Information and Multi-Scale Protein Graphs
 
 ## 💡 MAFI-DTA Framework
-![Structural diagram](https://github.com/user-attachments/assets/9d535758-f48f-497d-af1f-07365ecf025b)
+
 ![Structural diagram](https://github.com/user-attachments/assets/0eb36516-4e36-4291-bb2e-a4c2810e6350)
 
 MAFI: A Multi-Modal Attention Framework that combines protein evolutionary information sequence generation with multi-scale protein graph construction to enhance Drug-Target Affinity prediction. It uses the ESM3 model for creating evolutionary information sequence, enriching protein sequence diversity perception and improving generalization. The multi-step protein subgraph mapping captures structural info at different scales. Along with BILSTM and attention mechanisms, MAFI offers high interpretability, making it a credible tool for drug discovery.
