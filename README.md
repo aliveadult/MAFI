@@ -90,7 +90,7 @@ Next,you need to follow the same steps to download the corresponding esm3 weight
 ```
 https://hf-mirror.com/EvolutionaryScale/esm3-sm-open-v1/tree/main/data
 ```
-This allows you to use it to generate protein homologous sequences.
+This allows you to use it to generate protein evolutionary information sequences.
 
 
 ## 🖥️ Run Code
