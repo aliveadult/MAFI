@@ -1,5 +1,4 @@
-# MAFI-DTA: A Novel Method For Drug-Target Affinity Prediction By Integrating Predicted Evolutionary Homology Information And Multi-Scale Protein Graphs
-
+# MAFI-DTA: A Novel Method For Drug-Target Affinity Prediction by Integrating Predicted Evolutionary Information and Multi-Scale Protein Graphs
 
 ## 💡 MAFI-DTA Framework
 ![Structural diagram](https://github.com/user-attachments/assets/eff08ef9-eec1-4017-b94e-5ae8ae9c908f)
