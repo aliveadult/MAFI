@@ -22,7 +22,7 @@ interaction_network.py: Defines the model architecture, including the SpatialFea
 
 graphmaker.py: Provides functions for constructing molecular and protein contact graphs.
 
-generate_homologous.py: Contains functions for generating evolutionary information protein sequences and related utility functions.
+generate_esequence.py: Contains functions for generating evolutionary information protein sequences and related utility functions.
 
 These files collectively form a multi-modal attention framework for drug-target affinity prediction.
 
