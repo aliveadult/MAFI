@@ -6,27 +6,6 @@
 
 MAFI: A Multi-Modal Attention Framework that combines protein evolutionary information sequence generation with multi-scale protein graph construction to enhance Drug-Target Affinity prediction. It uses the ESM3 model for creating evolutionary information sequence, enriching protein sequence diversity perception and improving generalization. The multi-step protein subgraph mapping captures structural info at different scales. Along with BILSTM and attention mechanisms, MAFI offers high interpretability, making it a credible tool for drug discovery.
 
-
-
- 
-## 🧠 File list
-vocabulary_builder.py: Used to build a vocabulary, containing the TorchVocab, Vocab, and WordVocab classes, as well as the main function to generate and save the vocabulary.
-
-utils.py: Provides a set of utility functions, including model training, prediction, and performance metric calculation.
-
-molecular_interaction.py: Defines the MolecularInteractionDataset class for processing molecular and protein interaction datasets.
-
-main.py: The main program file, containing the workflow for data preprocessing, model training, and evaluation.
-
-interaction_network.py: Defines the model architecture, including the SpatialFeatureAggregator, HeterogeneousAttentionLayer, MolecularGraphNetwork, and CrossModalInteractionNet classes.
-
-graphmaker.py: Provides functions for constructing molecular and protein contact graphs.
-
-generate_esequence.py: Contains functions for generating evolutionary information protein sequences and related utility functions.
-
-These files collectively form a multi-modal attention framework for drug-target affinity prediction.
-
-
 ## 📁 Dataset
 
 ### Proteins, Small molecules, and Affinity values
