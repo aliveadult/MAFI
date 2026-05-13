@@ -67,7 +67,7 @@ If you need to use a specific version of the ESM model, it will be automatically
 Next,you need to follow the same steps to download the corresponding esm3 weight file in 
 
 ```
-https://hf-mirror.com/EvolutionaryScale/esm3-sm-open-v1/tree/main/data
+https://huggingface.co
 ```
 This allows you to use it to generate protein evolutionary information sequences.
 
