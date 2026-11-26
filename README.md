@@ -38,16 +38,6 @@ MAFI was developed on a Linux environment with CUDA 12.4
 
 Hardware: Two NVIDIA GeForce RTX 4090（24G）
 
-## 🛠️ Environment Setup
-You'll need to run the following commands in order to run the codes
-```
-conda env create -f requirements.yml   # Create environment and install dependencies
-```
-it will download all the required libraries。Of course, you can also download it manually, but this is not recommended here.
-```
-conda activate mafi  # Activate environment mafi
-```
-
 ## 🔗 Install ESM Model
 
 If you want to install the ESM model, you can use the following command:
