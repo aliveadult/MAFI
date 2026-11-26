@@ -31,9 +31,7 @@ Before starting model training, we use the ESM3 model to predict contact maps. T
 Protein contact maps are named as ‘{target_key}.nypy’ files. Each contact map for a protein-ligand complex in the generated dataset should be properly stored in a folder named ‘{dataset_name}_npy_contact_maps’ to enable quick and accurate access and reading during model training, ensuring the efficiency and consistency of the entire model training process and laying a solid foundation for improving model performance.
 
 You can also download the corresponding protein contact maps and datasets from the corresponding URL: 
-```
-[https://drive.google.com/drive/folders/196Uj91O-Dh6rQUs9MWRGH3X-G7mKq0ZP?hl=zh-cn](https://drive.google.com/drive/u/0/folders/1ZsqZQcW5b_pNV0jqwnWM8pU0fO06LqQV).
-```
+https://drive.google.com/drive/u/0/folders/1ZsqZQcW5b_pNV0jqwnWM8pU0fO06LqQV
 
 ## ✨ Operating System
 MAFI was developed on a Linux environment with CUDA 12.4
